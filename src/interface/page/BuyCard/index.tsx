@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+
 import { Car, Fuel, MapPin, Heart, ChevronRight, Wallet, CreditCard, Landmark, Truck,  User2,  MessageCircleWarning,} from "lucide-react";
 import { useState } from "react";
 
@@ -187,19 +189,22 @@ export function BuyCar() {
   </DialogContent>
 </Dialog>
    
-    <div className="mt-6">
+
+    <div className="mt-6 w-full">
       Forma de pagamento
-      <div className="flex w-full gap-2">
-      <div className="border flex-1 border-orange-500 rounded-lg text-[10px] p-2 bg-white">
+
+<ToggleGroup className="flex-1 m-4 w-full gap-2" type="single">
+  <ToggleGroupItem value="pix" aria-label="Toggle pix"> <div className="border max-w-full flex-1 border-orange-500 rounded-lg text-[10px] p-2 bg-white">
         <div className="flex items-center gap-2 text-sm">  <Wallet  className="text-orange-500"/> Dinheiro (PIX)</div>
         <span> Pagamento à vista, em pix, como nos novos tempos!</span>
-      </div>
-      <div  className="border flex-1 border-orange-500 rounded-lg text-[10px] p-2 bg-white">
+      </div></ToggleGroupItem>
+  <ToggleGroupItem value="credit" aria-label="Toggle credit">  <div  className="border flex-1 border-orange-500 rounded-lg text-[10px] p-2 bg-white">
       <div className="flex items-center gap-2 text-sm">  <CreditCard  className="text-orange-500"/> Cartão de Credito</div>
       <span>Praticidade e segurança na palma da mão, em até X vezes sem juros!</span>
-      </div>
-     
-      </div>
+      </div></ToggleGroupItem>
+
+</ToggleGroup>
+
       <div className=" rounded-lg mt-2 h-18 flex flex-col items-center justify-center p-2np text-white font-semibold   bg-orange-500">
         <div className=" border rounded-lg border-white flex w-full justify-between items-center p-4"> 
           <div>R$ 100.000,00</div>
